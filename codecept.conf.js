@@ -2,13 +2,15 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      url: 'https://test.taonet.es/',
+      url: 'https://test.taonet.es',
       show: true,
-      windowSize: '1200x900'
+      windowSize: '',
+      waitForNavigation: "networkidle2",
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    loginPage: './pages/loginPage.js'
   },
   mocha: {},
   bootstrap: null,
@@ -17,7 +19,10 @@ exports.config = {
   hooks: [],
   gherkin: {
     features: './features/*.feature',
-    steps: ['./step_definitions/steps.js']
+    steps: [
+      './step_definitions/steps.js',
+      './step_definitions/loginSteps.js'
+    ]
   },
   plugins: {
     screenshotOnFail: {
@@ -35,7 +40,15 @@ exports.config = {
     eachElement: {
       enabled: true
     },
-    pauseOnFail: {}
+    pauseOnFail: {},
+    allure: {
+      enabled: true,
+      require: '@codeceptjs/allure-legacy',
+    },
+    stepByStepReport: {
+      enabled: true,
+       screenshotsForAllureReport: true,
+    }
   },
   stepTimeout: 0,
   stepTimeoutOverride: [{
