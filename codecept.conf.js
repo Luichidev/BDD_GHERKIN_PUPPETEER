@@ -4,10 +4,7 @@ exports.config = {
     Puppeteer: {
       url: 'https://test.taonet.es',
       show: true,
-      windowSize: '1920x1080',
       waitForNavigation: "networkidle2",
-      waitForTimeout: 1000,
-
     }
   },
   include: {
