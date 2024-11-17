@@ -8,7 +8,7 @@ Feature: Iniciar sesión en TAONET
 
   @LoginAsMultiUsers
   Scenario Outline: Acceder a TAONET como usuario
-    Given Access the app as admin "<userName>" with "<password>"
+    Given Access the app as user <userName> with <password>
     When The admin has logged in successfully
     When Log out
     Then The admin has successfully logged out

@@ -9,6 +9,9 @@ class LoginPage {
 		this.buttonLogin = "[data-selenium-id='loginButton']"
 		this.isLoginPage = "[data-selenium-id='login']"
 		this.acceptCurrentCenter = "[data-selenium-id='loginSelCenterButton']"
+		this.detailAccountButton = "[data-selenium-id='mainUserButton']"
+		this.logoutButton = "[data-selenium-id='mainLogoutButton']"
+		this.acceptLogoutButton = "[data-selenium-id='button-yes-msgConfirm37']"
 	}
 
 	visit() {
@@ -27,9 +30,23 @@ class LoginPage {
 		I.saveScreenshot("login.png")
 	}
 
+	logout()
+	{
+		I.waitForElement(this.detailAccountButton)
+		I.click(this.detailAccountButton)
+		I.waitForElement(this.logoutButton)
+		I.click(this.logoutButton)
+		I.waitForElement(this.acceptLogoutButton)
+		I.click(this.acceptLogoutButton)
+	}
+
 	validateLogin() {
 		homepage = new HomePage()
 		homePage.isHomePage()
+	}
+
+	validateLogout(){
+		I.waitForElement(this.isLoginPage)
 	}
 }
 

@@ -5,9 +5,16 @@ Given(/^Access the app as admin: "([^"]*)" with password: "([^"]*)"$/, (userName
 	loginPage.login(userName, pass)
 });
 
+When("Log out",()=>{
+	loginPage.logout()
+})
 
-/*
-When('The admin has logged in successfully', () => {});
-And('Log out', () => {});
-Then('The admin has successfully logged out', () => {});
-*/
+Then("The admin has successfully logged out",()=>{
+	loginPage.validateLogout()
+})
+
+Given(/^Access the app as user (.*) with (.*)$/, (userName, pass) => {
+	loginPage.visit()
+	loginPage.login(userName, pass)
+	loginPage.validateLogin()
+});
