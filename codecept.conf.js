@@ -6,7 +6,8 @@ exports.config = {
       show: true,
       windowSize: '1920x1080',
       waitForNavigation: "networkidle2",
-      waitForAction: 800
+      waitForTimeout: 1000,
+
     }
   },
   include: {
