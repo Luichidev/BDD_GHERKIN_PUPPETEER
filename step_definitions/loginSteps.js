@@ -5,6 +5,10 @@ Given(/^Access the app as admin: "([^"]*)" with password: "([^"]*)"$/, (userName
 	loginPage.login(userName, pass)
 });
 
+When("The admin has logged in successfully",()=>{
+	loginPage.validateLogin()
+})
+
 When("Log out",()=>{
 	loginPage.logout()
 })
