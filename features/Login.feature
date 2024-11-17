@@ -1,7 +1,7 @@
 Feature: Iniciar sesión en TAONET
   @LoginAsAdmin
   Scenario: Acceder a TAONET como administrador
-    Given Access the app as admin: "administrador" with password: "xxx"
+    Given Access the app as admin: "administrador" with password: "12Qwaszx"
     When The admin has logged in successfully
     When Log out
     Then The admin has successfully logged out
@@ -15,5 +15,5 @@ Feature: Iniciar sesión en TAONET
 
     Examples:
       | userName      | password |
-      | administrador | xxx      |
+      | administrador | 12Qwaszx |
       | steve         | Tester11 |
