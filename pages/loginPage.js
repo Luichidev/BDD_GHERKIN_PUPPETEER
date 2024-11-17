@@ -1,4 +1,6 @@
-const { I } = inject();
+const { HomePage } = require("./homePage");
+
+const { I, homePage } = inject();
 
 class LoginPage {
 	constructor() {
@@ -6,9 +8,11 @@ class LoginPage {
 		this.inputLoginPass = "[data-selenium-id='loginPassword']"
 		this.buttonLogin = "[data-selenium-id='loginButton']"
 		this.isLoginPage = "[data-selenium-id='login']"
+		this.acceptCurrentCenter = "[data-selenium-id='loginSelCenterButton']"
 	}
 
 	visit() {
+		I.amOnPage('/'); 
 		I.waitForElement(this.isLoginPage)
 	}
 
@@ -18,11 +22,14 @@ class LoginPage {
 		I.waitForElement(this.inputLoginPass)
 		I.fillField(this.inputLoginPass, pass)
 		I.click(this.buttonLogin)
+		I.waitForElement(this.acceptCurrentCenter)
+		I.click(this.acceptCurrentCenter)
 		I.saveScreenshot("login.png")
 	}
 
 	validateLogin() {
-		I.waitForElement(this.isLoginPage)
+		homepage = new HomePage()
+		homePage.isHomePage()
 	}
 }
 

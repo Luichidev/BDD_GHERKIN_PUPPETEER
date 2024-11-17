@@ -4,13 +4,15 @@ exports.config = {
     Puppeteer: {
       url: 'https://test.taonet.es',
       show: true,
-      windowSize: '',
+      windowSize: '1920x1080',
       waitForNavigation: "networkidle2",
+      waitForAction: 800
     }
   },
   include: {
     I: './steps_file.js',
-    loginPage: './pages/loginPage.js'
+    loginPage: './pages/loginPage.js',
+    homePage: './pages/homePage.js'
   },
   mocha: {},
   bootstrap: null,
