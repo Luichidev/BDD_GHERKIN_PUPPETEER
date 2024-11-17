@@ -1,6 +1,4 @@
-const { HomePage } = require("./homePage");
-
-const { I, homePage } = inject();
+const { I } = inject();
 
 class LoginPage {
 	constructor() {
@@ -12,6 +10,7 @@ class LoginPage {
 		this.detailAccountButton = "[data-selenium-id='mainUserButton']"
 		this.logoutButton = "[data-selenium-id='mainLogoutButton']"
 		this.acceptLogoutButton = "[data-selenium-id='button-yes-msgConfirm37']"
+		this.isHomePage = "[data-selenium-id='app-menu-buttons']"
 	}
 
 	visit() {
@@ -41,8 +40,7 @@ class LoginPage {
 	}
 
 	validateLogin() {
-		homepage = new HomePage()
-		homePage.isHomePage()
+		I.see(this.isHomePage)
 	}
 
 	validateLogout(){
